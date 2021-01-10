@@ -4,6 +4,7 @@ import { KEYBOARD_KEY } from '../../../../enums/keyboard-keys';
 import Select from '../select';
 
 describe('<Select />', () => {
+  let select;
   const options = [1, 2, 3, 4];
 
   const openSelect = (wrapper) => {
@@ -16,6 +17,13 @@ describe('<Select />', () => {
   let container;
 
   beforeEach(() => {
+    select = {
+      options: options,
+      selected: options[0],
+      disabled: false,
+      onSelectionChange: () => {},
+    };
+
     container = document.createElement('div');
     container.id = 'enzymeContainer';
     document.body.appendChild(container);
@@ -31,40 +39,27 @@ describe('<Select />', () => {
 
   test('adds the additional className', () => {
     const testingClassName = 'test-class';
-    const SelectComponent = shallow(
-      <Select
-        className={testingClassName}
-        options={options}
-        selected={options[0]}
-        onSelectionChange={() => {}}
-      ></Select>,
-    );
+    const SelectComponent = shallow(<Select {...select} className={testingClassName}></Select>);
     expect(SelectComponent.hasClass(testingClassName)).toEqual(true);
   });
 
   test('Is disabled', () => {
     const spyFn = jest.fn();
-    const SelectComponent = shallow(
-      <Select options={options} selected={options[0]} disabled={true} onSelectionChange={spyFn}></Select>,
-    );
+    const SelectComponent = shallow(<Select {...select} disabled={true} onSelectionChange={spyFn}></Select>);
     expect(SelectComponent.hasClass('disabled')).toEqual(true);
     openSelect(SelectComponent);
     expect(spyFn).not.toBeCalled();
   });
 
   test('value is selected', () => {
-    const SelectComponent = shallow(
-      <Select options={options} selected={options[0]} onSelectionChange={() => {}}></Select>,
-    );
+    const SelectComponent = shallow(<Select {...select}></Select>);
     openSelect(SelectComponent);
     expect(getOption(SelectComponent, 0).hasClass('selected')).toEqual(true);
   });
 
   test('open/close and select new option', () => {
     const spyFn = jest.fn();
-    const SelectComponent = shallow(
-      <Select options={options} selected={options[0]} onSelectionChange={spyFn}></Select>,
-    );
+    const SelectComponent = shallow(<Select {...select} onSelectionChange={spyFn}></Select>);
     openSelect(SelectComponent);
     expect(SelectComponent.hasClass('opened')).toEqual(true);
     SelectComponent.find('.select__option').last().simulate('click');
@@ -74,9 +69,7 @@ describe('<Select />', () => {
 
   test('open/close with keyboard', () => {
     const spyFn = jest.fn();
-    const SelectComponent = shallow(
-      <Select options={options} selected={options[0]} onSelectionChange={spyFn}></Select>,
-    );
+    const SelectComponent = shallow(<Select {...select} onSelectionChange={spyFn}></Select>);
     SelectComponent.find('.select__selected').simulate('keyDown', { key: KEYBOARD_KEY.ENTER });
     SelectComponent.find('.select__selected').simulate('keyDown', { key: KEYBOARD_KEY.BACKSPACE }); // only for 100% coverage
     getOption(SelectComponent, 0).simulate('keyDown', { key: KEYBOARD_KEY.BACKSPACE }); // only for 100% coverage
@@ -89,12 +82,9 @@ describe('<Select />', () => {
     const isFirstOption = (index) => index === 0;
     const isLastOption = (index, length) => index + 1 === length;
 
-    const SelectComponent = mount(
-      <Select options={options} selected={options[0]} onSelectionChange={() => {}}></Select>,
-      {
-        attachTo: document.getElementById('enzymeContainer'),
-      },
-    );
+    const SelectComponent = mount(<Select {...select}></Select>, {
+      attachTo: document.getElementById('enzymeContainer'),
+    });
     openSelect(SelectComponent);
 
     let option, focusedElement;
@@ -121,7 +111,7 @@ describe('<Select />', () => {
 
   test('option are selectable and close with keyboard', () => {
     const spyFn = jest.fn();
-    const SelectComponent = mount(<Select options={options} selected={options[0]} onSelectionChange={spyFn}></Select>);
+    const SelectComponent = mount(<Select {...select} onSelectionChange={spyFn}></Select>);
 
     let option;
 
@@ -139,15 +129,12 @@ describe('<Select />', () => {
     SelectComponent.unmount();
   });
 
-  test('Test focus trap', () => {
+  test('Focus trap works correctly', () => {
     let focusedElement;
 
-    const SelectComponent = mount(
-      <Select options={options} selected={options[0]} onSelectionChange={() => {}}></Select>,
-      {
-        attachTo: document.getElementById('enzymeContainer'),
-      },
-    );
+    const SelectComponent = mount(<Select {...select}></Select>, {
+      attachTo: document.getElementById('enzymeContainer'),
+    });
 
     openSelect(SelectComponent);
 

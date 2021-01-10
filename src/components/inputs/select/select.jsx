@@ -8,6 +8,7 @@ const Select = ({ className = '', selected, options, disabled, onSelectionChange
   const ref = useRef();
   const [opened, setOpened] = useState(false);
 
+  /* istanbul ignore next */
   useOutsideClick(ref, () => {
     handleOpenSelect(false);
   });
@@ -55,7 +56,7 @@ const Select = ({ className = '', selected, options, disabled, onSelectionChange
   };
 
   const handleSelectChanges = (selectedOption) => {
-    if (disabled || selectedOption.disabled) {
+    if (disabled) {
       return;
     }
 
@@ -87,7 +88,7 @@ const Select = ({ className = '', selected, options, disabled, onSelectionChange
             <div
               key={item}
               ref={(x) => (focusableElements[`item-${index}`] = x)}
-              className={`select__option ${item.disabled ? 'disabled' : ''} ${isSelected(item) ? 'selected' : ''}`}
+              className={`select__option ${isSelected(item) ? 'selected' : ''}`}
               tabIndex='0'
               onClick={() => handleSelectChanges(item)}
               onKeyDown={(e) => handleKeyDownOption(e, item, index)}
