@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import Table from '../components/table/table';
 import { SORT } from '../enums/sort';
@@ -31,7 +32,7 @@ const Main = () => {
   ];
 
   const initialParams = {
-    q: 'react',
+    q: '',
     sort: 'name',
     order: SORT.DESC,
     page: 1,
