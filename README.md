@@ -13,6 +13,7 @@ El proyecto ha sido montado con la build tool [Create React App](https://github.
   <br>Testing:
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://enzymejs.github.io/enzyme/)
+- [@wojtekmaj/enzyme-adapter-react-17](https://github.com/wojtekmaj/enzyme-adapter-react-17) (Adaptador de enzyme para React 17 mientras no exista versión oficial)
 
 ## Live app
 
@@ -34,6 +35,10 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run test-coverage`
+
+Launches the test runner and generate the coverage files.
 
 ### `npm run build`
 
