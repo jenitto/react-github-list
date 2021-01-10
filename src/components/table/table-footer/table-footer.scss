@@ -1,11 +1,11 @@
 $compName: 'table-footer';
 
 .#{$compName} {
+  @include primary-font-M-regular;
   display: table;
   width: 100%;
   background-color: $neutral900;
   color: $neutral100;
-  font-size: 1.6rem;
 
   &__container {
     display: table-cell;

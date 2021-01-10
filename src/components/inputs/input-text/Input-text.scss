@@ -10,8 +10,7 @@ $compName: 'input-text';
   }
 
   .#{$compName}__input {
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+    @include primary-font-M-regular;
     background: #2e2e2e;
     height: 5.6rem;
     width: 100%;
@@ -52,32 +51,26 @@ $compName: 'input-text';
     &:focus ~ .#{$compName}__label,
     &:valid ~ .#{$compName}__label {
       color: $accent100;
-      font-size: 1.3rem;
-      line-height: 2rem;
+      @include primary-font-S-regular;
       top: 0.4rem;
     }
   }
 
   &__label {
+    @include primary-font-M-regular;
     color: #b5b5b5;
-    font-size: 1.6rem;
     font-weight: normal;
     position: absolute;
     pointer-events: none;
     left: 1.6rem;
     top: 1.4rem;
-    line-height: 2.4rem;
     transition: 0.3s ease all;
     user-select: none;
   }
 
-  &__icons-container {
-    position: absolute;
+  &__icon {
+    position: absolute !important;
     right: 0;
     top: 2.2rem;
-
-    & > * {
-      margin-right: 16px;
-    }
   }
 }

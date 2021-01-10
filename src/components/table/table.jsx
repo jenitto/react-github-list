@@ -10,6 +10,7 @@ const Table = ({
   columns,
   data,
   selected,
+  disabledButton,
   check = false,
   size,
   sizes,
@@ -23,7 +24,11 @@ const Table = ({
   onChangePage,
 }) => (
   <div className='table'>
-    <TableHeader totalSelected={selected.length} onChangeSearchValue={onChangeSearchValue}></TableHeader>
+    <TableHeader
+      totalSelected={selected.length}
+      disabledButton={disabledButton}
+      onChangeSearchValue={onChangeSearchValue}
+    ></TableHeader>
     <div className='table__table-wrapper'>
       <table className='table__table'>
         <thead className='table__head'>
@@ -34,7 +39,7 @@ const Table = ({
                   value={'all'}
                   checked={selected.length > 0 && selected.length === data.length}
                   indeterminate={selected.length > 0 && selected.length < data.length}
-                  setChecked={() => onChangeSelectedAll()}
+                  onChange={() => onChangeSelectedAll()}
                 ></Checkbox>
               </th>
             ) : null}
@@ -52,7 +57,7 @@ const Table = ({
                       <Checkbox
                         value={row.id}
                         checked={!!selected.find((item) => row.id === item.id)}
-                        setChecked={() => onChangeSelected(row)}
+                        onChange={() => onChangeSelected(row)}
                       ></Checkbox>
                     </td>
                   ) : null}
@@ -90,6 +95,7 @@ Table.propTypes = {
     }),
   ).isRequired,
   selected: PropTypes.array,
+  disabledButton: PropTypes.bool,
   check: PropTypes.bool,
   size: PropTypes.number.isRequired,
   sizes: PropTypes.array.isRequired,

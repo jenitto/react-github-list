@@ -16,7 +16,7 @@ $optionHeight: 2.4rem;
   }
 
   &.opened {
-    .#{$compName}__select-icon {
+    .#{$compName}__select-icon > svg {
       transform: rotate(180deg);
     }
   }
@@ -42,7 +42,10 @@ $optionHeight: 2.4rem;
   &__select-icon {
     float: right;
     vertical-align: middle;
-    transition: transform 0.2s ease;
+
+    & > svg {
+      transition: transform 0.2s ease;
+    }
   }
 
   &__select {
@@ -87,9 +90,8 @@ $optionHeight: 2.4rem;
     }
 
     &-label {
+      @include primary-font-M-regular;
       display: inline-block;
-      font-size: 1.6rem;
-      line-height: 2.4rem;
       color: #b5b5b5;
       max-width: 100%;
     }

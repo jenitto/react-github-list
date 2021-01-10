@@ -132,6 +132,7 @@ const Main = () => {
           columns={columns}
           data={renderData(repositories)}
           selected={selected}
+          disabledButton={!selected.length}
           check={true}
           size={params.per_page}
           sizes={sizes}

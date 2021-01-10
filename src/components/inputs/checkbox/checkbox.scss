@@ -76,8 +76,7 @@ $compName: 'checkbox';
   }
 
   &__label {
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+    @include primary-font-M-regular;
     color: $neutral50;
     margin-left: 1.6rem;
     user-select: none;

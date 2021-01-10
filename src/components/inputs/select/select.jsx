@@ -1,13 +1,14 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import useOutsideClick from '../../../hooks/useOutsideClick';
+import { iconChevronBottom } from '../../../assets/icons/_icons';
 
 const ARROW_KEY_UP = 'ArrowUp';
 const ARROW_KEY_DOWN = 'ArrowDown';
 const ESCAPE_KEY = 'Escape';
 const ENTER_KEY = 'Enter';
 
-const Select = ({ selected, options, disabled, onSelectionChange }) => {
+const Select = ({ className = '', selected, options, disabled, onSelectionChange }) => {
   const ref = useRef();
   const [opened, setOpened] = useState(false);
 
@@ -73,7 +74,7 @@ const Select = ({ selected, options, disabled, onSelectionChange }) => {
   disabled = disabled || !options.length;
 
   return (
-    <div ref={ref} className={`select ${opened ? 'opened' : 'closed'} ${disabled ? 'disabled' : ''}`}>
+    <div ref={ref} className={`select ${className} ${opened ? 'opened' : 'closed'} ${disabled ? 'disabled' : ''}`}>
       <div
         className={`select__selected ${disabled ? 'disabled' : ''}`}
         tabIndex={`${disabled ? -1 : 0}`}
@@ -81,24 +82,7 @@ const Select = ({ selected, options, disabled, onSelectionChange }) => {
         onClick={() => handleOpenSelect(!opened)}
       >
         {selected}
-        <svg
-          className='select__select-icon'
-          width='25'
-          height='24'
-          viewBox='0 0 25 24'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <mask id='mask5' mask-type='alpha' maskUnits='userSpaceOnUse' x='5' y='9' width='14' height='8'>
-            <path
-              d='M6.27148 9.39041L5.55273 10.1092L11.8027 16.3592L12.1621 16.7029L12.5215 16.3592L18.7715 10.1092L18.0527 9.39041L12.1621 15.281L6.27148 9.39041Z'
-              fill='#858585'
-            />
-          </mask>
-          <g mask='url(#mask5)'>
-            <path d='M4.16211 4H20.1621V20H4.16211V4Z' fill='#FCDD82' />
-          </g>
-        </svg>
+        <span className='select__select-icon'>{iconChevronBottom()}</span>
       </div>
       {opened ? (
         <div className='select__select'>
@@ -127,6 +111,7 @@ const Select = ({ selected, options, disabled, onSelectionChange }) => {
 };
 
 Select.propTypes = {
+  className: PropTypes.string,
   selected: PropTypes.number.isRequired,
   options: PropTypes.array.isRequired,
   disabled: PropTypes.bool,
