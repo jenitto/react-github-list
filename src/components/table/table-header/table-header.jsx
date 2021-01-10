@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ButtonPrimary from '../../buttons/button-primary/button-primary';
 import InputText from '../../inputs/input-text/Input-text';
 
-const TableHeader = ({ totalSelected, disabledButton, onChangeSearchValue }) => {
+const TableHeader = ({ actionLabel, totalSelected, disabledButton, onActionClick, onChangeSearchValue }) => {
   return (
     <div className='table-header'>
       <div className='table-header__container table-header__container--left'>
@@ -11,21 +11,25 @@ const TableHeader = ({ totalSelected, disabledButton, onChangeSearchValue }) => 
         {totalSelected ? <span className='table-header__chip'>{totalSelected} elementos seleccionados</span> : null}
       </div>
       <div className='table-header__container table-header__container--right'>
-        <ButtonPrimary
-          className='table-header__button-principal'
-          label='Action'
-          hasRipple
-          disabled={disabledButton}
-          onClick={() => console.log('click')}
-        ></ButtonPrimary>
+        {onActionClick && (
+          <ButtonPrimary
+            className='table-header__button-principal'
+            label={actionLabel}
+            hasRipple
+            disabled={disabledButton}
+            onClick={onActionClick}
+          ></ButtonPrimary>
+        )}
       </div>
     </div>
   );
 };
 
 TableHeader.propTypes = {
+  actionLabel: PropTypes.string,
   totalSelected: PropTypes.number,
   disabledButton: PropTypes.bool,
+  onActionClick: PropTypes.func,
   onChangeSearchValue: PropTypes.func,
 };
 

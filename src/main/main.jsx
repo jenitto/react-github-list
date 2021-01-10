@@ -108,6 +108,11 @@ const Main = () => {
     }
   };
 
+  const handleActionClick = () => {
+    setSelected([]);
+    setRepositories([...repositories.filter((a) => !selected.find((b) => b.id === a.id))]);
+  };
+
   const renderData = (repositories) =>
     repositories.map((repo) => {
       return {
@@ -131,6 +136,7 @@ const Main = () => {
         <Table
           columns={columns}
           data={renderData(repositories)}
+          actionLabel={'Eliminar'}
           selected={selected}
           disabledButton={!selected.length}
           check={true}
@@ -139,6 +145,7 @@ const Main = () => {
           page={params.page}
           total={total}
           isLoading={isLoading}
+          onActionClick={handleActionClick}
           onChangeSearchValue={handleSearchValue}
           onChangeSelected={changeSelected}
           onChangeSelectedAll={changeSelectedAll}

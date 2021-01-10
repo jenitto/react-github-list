@@ -9,6 +9,7 @@ import TableFooter from './table-footer/table-footer';
 const Table = ({
   columns,
   data,
+  actionLabel,
   selected,
   disabledButton,
   check = false,
@@ -17,6 +18,7 @@ const Table = ({
   page,
   total,
   isLoading,
+  onActionClick,
   onChangeSearchValue,
   onChangeSelected,
   onChangeSelectedAll,
@@ -25,8 +27,10 @@ const Table = ({
 }) => (
   <div className='table'>
     <TableHeader
+      actionLabel={actionLabel}
       totalSelected={selected.length}
       disabledButton={disabledButton}
+      onActionClick={onActionClick}
       onChangeSearchValue={onChangeSearchValue}
     ></TableHeader>
     <div className='table__table-wrapper'>
@@ -94,6 +98,7 @@ Table.propTypes = {
       maxWidth: PropTypes.string,
     }),
   ).isRequired,
+  actionLabel: PropTypes.string,
   selected: PropTypes.array,
   disabledButton: PropTypes.bool,
   check: PropTypes.bool,
@@ -102,6 +107,7 @@ Table.propTypes = {
   page: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
   isLoading: PropTypes.bool,
+  onActionClick: PropTypes.func,
   onChangeSearchValue: PropTypes.func,
   onChangeSelected: PropTypes.func,
   onChangeSelectedAll: PropTypes.func,
