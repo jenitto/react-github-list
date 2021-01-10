@@ -15,7 +15,7 @@ const Button = ({ className = '', type, label, hasRipple, disabled, isLoading, o
 
 Button.propTypes = {
   className: PropTypes.string,
-  type: PropTypes.oneOf(['primary', 'secondary', 'terciary']).isRequired,
+  type: PropTypes.oneOf(['primary', 'secondary']).isRequired,
   label: PropTypes.string.isRequired,
   isLoading: PropTypes.bool,
   color: PropTypes.string,
