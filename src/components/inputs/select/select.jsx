@@ -2,11 +2,7 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import useOutsideClick from '../../../hooks/useOutsideClick';
 import { iconChevronBottom } from '../../../assets/icons/_icons';
-
-const ARROW_KEY_UP = 'ArrowUp';
-const ARROW_KEY_DOWN = 'ArrowDown';
-const ESCAPE_KEY = 'Escape';
-const ENTER_KEY = 'Enter';
+import { KEYBOARD_KEY } from '../../../enums/keyboard-keys';
 
 const Select = ({ className = '', selected, options, disabled, onSelectionChange }) => {
   const ref = useRef();
@@ -17,26 +13,26 @@ const Select = ({ className = '', selected, options, disabled, onSelectionChange
   });
 
   const handleKeyDownSelect = (e) => {
-    if (e.key === ENTER_KEY) {
+    if (e.key === KEYBOARD_KEY.ENTER) {
       handleOpenSelect(!opened);
-    } else if (e.key === ESCAPE_KEY) {
+    } else if (e.key === KEYBOARD_KEY.ESCAPE) {
       handleOpenSelect(false);
     }
   };
 
   const handleKeyDownOption = (e, option, index) => {
-    if (e.key === ENTER_KEY) {
+    if (e.key === KEYBOARD_KEY.ENTER) {
       handleSelectChanges(option);
       e.stopPropagation();
-    } else if (e.key === ARROW_KEY_UP) {
+    } else if (e.key === KEYBOARD_KEY.ARROW_UP) {
       e.preventDefault();
       e.stopPropagation();
       handleFocus(index - 1);
-    } else if (e.key === ARROW_KEY_DOWN) {
+    } else if (e.key === KEYBOARD_KEY.ARROW_DOWN) {
       e.preventDefault();
       e.stopPropagation();
       handleFocus(index + 1);
-    } else if (e.key === ESCAPE_KEY) {
+    } else if (e.key === KEYBOARD_KEY.ESCAPE) {
       handleOpenSelect(false);
     }
   };
