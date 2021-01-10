@@ -1,0 +1,79 @@
+@import 'table-cell-header/table-cell-header.scss';
+@import 'table-footer/table-footer.scss';
+@import 'table-header/table-header.scss';
+
+$compName: 'table';
+
+.#{$compName} {
+  &__table-wrapper {
+    @include customScrollbar;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 60vh;
+  }
+
+  &__table {
+    min-width: 700px;
+    width: 100%;
+    display: table;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  &__head,
+  &__body {
+    display: table-header-group;
+  }
+
+  &__row {
+    display: table-row;
+    outline: 0;
+    vertical-align: middle;
+    padding: 0 1.6rem;
+
+    &--normal {
+      &:nth-child(even) {
+        background-color: $neutral700;
+      }
+
+      &:nth-child(odd) {
+        background-color: $neutral600;
+      }
+
+      &:hover.checkable {
+        cursor: pointer;
+        background-color: $neutral500;
+      }
+    }
+  }
+
+  th.#{$compName}__cell {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: $neutral500;
+  }
+
+  &__cell {
+    @include ellipsis;
+    @include primary-font-M-regular;
+    display: table-cell;
+    height: 56px;
+    box-sizing: border-box;
+    text-align: left;
+    vertical-align: inherit;
+    color: $neutral50;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0 1.6rem;
+
+    &-icon {
+      display: inline-block;
+
+      &--reverse {
+        transform: scaleY(-1);
+      }
+    }
+  }
+}

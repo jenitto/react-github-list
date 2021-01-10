@@ -1,0 +1,99 @@
+$compName: 'checkbox';
+
+.#{$compName} {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin: 1rem;
+
+  &.disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &--checked .#{$compName}__button,
+  &--indeterminate .#{$compName}__button,
+  &:hover:not(.disabled) .#{$compName}__button,
+  &.focused .#{$compName}__button {
+    box-shadow: 0 0 0 0.2rem $accent200;
+  }
+
+  &--checked .#{$compName}__button-icon {
+    height: 1.4rem;
+    width: 1.4rem;
+  }
+
+  &--indeterminate .#{$compName}__button-icon {
+    height: 0.3rem;
+    width: 1.2rem;
+  }
+
+  &:hover:not(.disabled) .#{$compName}__button-container::after,
+  &.focused .#{$compName}__button-container::after {
+    opacity: 0.5;
+  }
+
+  &__button-container {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #404040;
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+  }
+
+  &__button {
+    box-shadow: 0 0 0 0.2rem $neutral50;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    vertical-align: middle;
+    z-index: 1;
+
+    &-icon {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 0;
+      width: 0;
+      background-color: $accent200;
+      transition: 0.1s ease;
+    }
+  }
+
+  &__label {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: $neutral50;
+    margin-left: 1.6rem;
+    user-select: none;
+    vertical-align: middle;
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    cursor: inherit;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    z-index: 1;
+  }
+}

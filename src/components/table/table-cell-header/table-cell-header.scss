@@ -1,0 +1,11 @@
+$compName: 'table-cell-header';
+
+.#{$compName} {
+  position: relative;
+
+  &__label {
+    @include primary-font-M-semibold;
+    pointer-events: none;
+    user-select: none;
+  }
+}

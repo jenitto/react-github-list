@@ -1,0 +1,35 @@
+$compName: 'table-header';
+
+.#{$compName} {
+  display: table;
+  width: 100%;
+  background-color: $neutral700;
+
+  &__container {
+    display: table-cell;
+    box-sizing: border-box;
+    vertical-align: middle;
+    height: 5.6rem;
+
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+  }
+
+  &__button-principal {
+    margin: 0;
+  }
+
+  &__chip {
+    @include primary-font-M-regular;
+    color: $info200;
+    background: $neutral600;
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+    margin-left: 2.8rem;
+  }
+}

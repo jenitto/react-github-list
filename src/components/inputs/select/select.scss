@@ -1,0 +1,106 @@
+$compName: 'select';
+
+$optionHeight: 2.4rem;
+
+.#{$compName} {
+  position: relative;
+  display: inline-block;
+  margin: 0 0.2rem;
+
+  &:not(.disabled) .#{$compName}__selected {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  &.opened {
+    .#{$compName}__select-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__selected {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 0.4rem 0.4rem 0.4rem 0.8rem;
+    box-sizing: border-box;
+    color: $accent200;
+    line-height: 2.5rem;
+    outline: none;
+    border-radius: 0;
+
+    &:hover:not(.disabled),
+    &:focus:not(.disabled) {
+      outline: none;
+      background-color: $neutral700;
+    }
+  }
+
+  &__select-icon {
+    float: right;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+  }
+
+  &__select {
+    @include customScrollbar;
+    overflow-y: auto;
+    min-width: 6rem;
+    max-height: 25rem;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    user-select: none;
+    animation: fadein 0.2s ease;
+  }
+
+  &__option {
+    background: #363636;
+    padding: 1.2rem 1.6rem;
+    vertical-align: middle;
+
+    &::-moz-focus-inner {
+      border: 0;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover:not(.disabled),
+    &:focus:not(.disabled) {
+      background-color: #404040;
+      color: $neutral50;
+      cursor: pointer;
+    }
+
+    &.disabled .#{$compName}__option-label {
+      opacity: 0.5;
+    }
+
+    &.selected .#{$compName}__option-label {
+      color: $accent200;
+    }
+
+    &-label {
+      display: inline-block;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      color: #b5b5b5;
+      max-width: 100%;
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

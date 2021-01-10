@@ -1,0 +1,83 @@
+$compName: 'input-text';
+
+.#{$compName} {
+  display: inline-block;
+  position: relative;
+  width: 28rem;
+
+  &--disabled {
+    opacity: 0.5;
+  }
+
+  .#{$compName}__input {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    background: #2e2e2e;
+    height: 5.6rem;
+    width: 100%;
+    color: $neutral50;
+    box-sizing: border-box;
+    padding: 2.4rem 3.6rem 0.8rem 1.6rem;
+    outline: none;
+    border: 0.1rem solid transparent;
+    border-radius: 0;
+    border-bottom: 0.2rem solid #858585;
+    display: block;
+
+    &::-ms-clear {
+      display: none;
+    }
+
+    &--success {
+      border-bottom-color: $ok300;
+    }
+
+    &--error {
+      border-bottom-color: $error500;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: $boxShadow;
+      border-top: 0.1rem solid $accent100;
+      border-left: 0.1rem solid $accent100;
+      border-right: 0.1rem solid $accent100;
+      border-bottom: 0.2rem solid $accent100;
+    }
+
+    &:hover:not(:disabled) {
+      border-bottom: 0.2rem solid $accent100;
+    }
+
+    &:focus ~ .#{$compName}__label,
+    &:valid ~ .#{$compName}__label {
+      color: $accent100;
+      font-size: 1.3rem;
+      line-height: 2rem;
+      top: 0.4rem;
+    }
+  }
+
+  &__label {
+    color: #b5b5b5;
+    font-size: 1.6rem;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 1.6rem;
+    top: 1.4rem;
+    line-height: 2.4rem;
+    transition: 0.3s ease all;
+    user-select: none;
+  }
+
+  &__icons-container {
+    position: absolute;
+    right: 0;
+    top: 2.2rem;
+
+    & > * {
+      margin-right: 16px;
+    }
+  }
+}

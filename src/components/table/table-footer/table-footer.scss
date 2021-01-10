@@ -1,0 +1,48 @@
+$compName: 'table-footer';
+
+.#{$compName} {
+  display: table;
+  width: 100%;
+  background-color: $neutral900;
+  color: $neutral100;
+  font-size: 1.6rem;
+
+  &__container {
+    display: table-cell;
+
+    &--left {
+      float: left;
+    }
+
+    &--right {
+      float: right;
+    }
+
+    &:not(:first-of-type) {
+      border-left: 4px solid $neutral800;
+    }
+  }
+
+  &__spacer {
+    display: table-cell;
+    box-sizing: border-box;
+    vertical-align: middle;
+    // padding: 0 .8rem;
+    padding: 0 3.2rem;
+    height: 5.6rem;
+
+    &:not(:first-of-type) {
+      border-left: 4px solid $neutral800;
+    }
+  }
+
+  &__text {
+    &--hint {
+      color: $neutral50;
+    }
+
+    &--primary {
+      color: $accent200;
+    }
+  }
+}

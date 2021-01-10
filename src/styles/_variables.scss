@@ -1,0 +1,277 @@
+/* SPACERS */
+$spacer-xs: 0.4rem;
+$spacer-s: 0.8rem;
+$spacer-m: 1.6rem;
+$spacer-l: 2.4rem;
+$spacer-xl: 3.2rem;
+$spacer-2xl: 4rem;
+$spacer-3xl: 4.8rem;
+$spacer-4xl: 5.6rem;
+$spacer-5xl: 6.4rem;
+$spacer-6xl: 7.2rem;
+$spacer-7xl: 8rem;
+
+/* COLORS */
+$color-interface-black: #000000;
+$color-interface-white: #ffffff;
+$info50: #e1f4fc;
+$info100: #b4e4f8;
+$info200: #85d2f3;
+$info300: #3eb3ea;
+$info400: #2da5e6;
+$info500: #2998d8;
+$info600: #2385c4;
+$info700: #2074b0;
+$info800: #18558e;
+$info900: #0f477b;
+$ok50: #e6f5e8;
+$ok100: #c3e5c8;
+$ok200: #9cd4a4;
+$ok300: #73c480;
+$ok400: #53b766;
+$ok500: #30ab4b;
+$ok600: #279c42;
+$ok700: #1b8a36;
+$ok800: #0e792c;
+$ok900: #005a19;
+$warning50: #fbeae8;
+$warning100: #fecfbf;
+$warning200: #feb096;
+$warning300: #ff916c;
+$warning400: #ff794c;
+$warning500: #ff632e;
+$warning600: #f45c2a;
+$warning700: #e65525;
+$warning800: #d84f22;
+$warning900: #bf4219;
+$error50: #fceaee;
+$error100: #f7cbd3;
+$error200: #e4979d;
+$error300: #d67077;
+$error400: #e04f58;
+$error500: #e43e42;
+$error600: #d5353f;
+$error700: #c32c39;
+$error800: #b62632;
+$error900: #a61d28;
+$neutral50: #e6e6e6;
+$neutral100: #b5b5b5;
+$neutral200: #858585;
+$neutral300: #606060;
+$neutral400: #4d4d4d;
+$neutral500: #3f3f3f;
+$neutral600: #353535;
+$neutral700: #2e2e2e;
+$neutral800: #262626;
+$neutral900: #1a1a1a;
+$accent50: #fef7e1;
+$accent100: #fdebb3;
+$accent200: #fcdd82;
+$accent300: #fbd24f;
+$accent400: #fac628;
+$accent500: #fabd07;
+$accent600: #faaf01;
+$accent700: #f99c01;
+$accent800: #ea9000;
+$accent900: #db8700;
+$mainBlock: #1a1a1a;
+$mainBlock: #fcdd82;
+
+/* SHADOWS */
+$boxShadow: 0 0 1rem 0 $accent200;
+$textShadow: 0 0 1rem $accent200;
+
+/* FONTS */
+@mixin primary-font-XS-extralight {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 2rem;
+}
+@mixin primary-font-XS-regular {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+}
+@mixin primary-font-XS-semibold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 2rem;
+}
+@mixin primary-font-XS-extrabold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 2rem;
+}
+@mixin primary-font-S-extralight {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 200;
+  line-height: 2rem;
+}
+@mixin primary-font-S-regular {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 2rem;
+}
+@mixin primary-font-S-semibold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 2rem;
+}
+@mixin primary-font-S-extrabold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 2rem;
+}
+@mixin primary-font-M-extralight {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 200;
+  line-height: 2.4rem;
+}
+
+@mixin primary-font-M-regular {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+@mixin primary-font-M-semibold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+@mixin primary-font-M-extrabold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 2.4rem;
+}
+@mixin primary-font-L-extralight {
+  font-family: 'Inter var', sans-serif;
+  font-size: 2rem;
+  font-weight: 200;
+  line-height: 2.8rem;
+}
+@mixin primary-font-L-regular {
+  font-family: 'Inter var', sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+}
+@mixin primary-font-L-semibold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.8rem;
+}
+@mixin primary-font-L-extrabold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 2.8rem;
+}
+@mixin primary-font-XL-extralight {
+  font-family: 'Inter var', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 200;
+  line-height: 3.6rem;
+}
+@mixin primary-font-XL-regular {
+  font-family: 'Inter var', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 3.6rem;
+}
+@mixin primary-font-XL-semibold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 3.6rem;
+}
+@mixin primary-font-XL-extrabold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 3.6rem;
+}
+@mixin primary-font-2XL-extralight {
+  font-family: 'Inter var', sans-serif;
+  font-size: 3.1rem;
+  font-weight: 200;
+  line-height: 4.4rem;
+}
+@mixin primary-font-2XL-regular {
+  font-family: 'Inter var', sans-serif;
+  font-size: 3.1rem;
+  font-weight: 400;
+  line-height: 4.4rem;
+}
+@mixin primary-font-2XL-semibold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 3.1rem;
+  font-weight: 600;
+  line-height: 4.4rem;
+}
+@mixin primary-font-2XL-extrabold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 3.1rem;
+  font-weight: 800;
+  line-height: 4.4rem;
+}
+@mixin primary-font-3XL-extralight {
+  font-family: 'Inter var', sans-serif;
+  font-size: 4rem;
+  font-weight: 200;
+  line-height: 5.6rem;
+}
+@mixin primary-font-3XL-regular {
+  font-family: 'Inter var', sans-serif;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 5.6rem;
+}
+@mixin primary-font-3XL-semibold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 5.6rem;
+}
+@mixin primary-font-3XL-extrabold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 5.6rem;
+}
+@mixin primary-font-4XL-extralight {
+  font-family: 'Inter var', sans-serif;
+  font-size: 4.9rem;
+  font-weight: 200;
+  line-height: 7.2rem;
+}
+@mixin primary-font-4XL-regular {
+  font-family: 'Inter var', sans-serif;
+  font-size: 4.9rem;
+  font-weight: 400;
+  line-height: 7.2rem;
+}
+@mixin primary-font-4XL-semibold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 4.9rem;
+  font-weight: 600;
+  line-height: 7.2rem;
+}
+@mixin primary-font-4XL-extrabold {
+  font-family: 'Inter var', sans-serif;
+  font-size: 4.9rem;
+  font-weight: 800;
+  line-height: 7.2rem;
+}

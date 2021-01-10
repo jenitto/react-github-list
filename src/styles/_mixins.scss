@@ -1,0 +1,58 @@
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin customScrollbar($color1: #616161, $color2: #363636) {
+  & {
+    scrollbar-color: $color1 $color2;
+    scrollbar-width: thin;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $color2;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: $color1;
+  }
+}
+
+@mixin ripple($color: #fff) {
+  &:not(:disabled):not(.disabled) {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+
+    &:after {
+      z-index: -1;
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle, $color 10%, transparent 10.01%);
+      background-repeat: no-repeat;
+      background-position: 50%;
+      transform: scale(10, 10);
+      opacity: 0;
+      transition: transform 0.5s, opacity 1s;
+    }
+
+    &:active:after {
+      transform: scale(0, 0);
+      opacity: 0.3;
+      transition: 0s;
+    }
+  }
+}

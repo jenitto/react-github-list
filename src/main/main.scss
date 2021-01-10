@@ -1,0 +1,19 @@
+$compName: 'main';
+
+.#{$compName} {
+  padding: $spacer-4xl;
+
+  &__title {
+    @include primary-font-L-regular;
+    display: inline-block;
+  }
+
+  &__loader {
+    height: 4rem;
+    margin-left: $spacer-4xl;
+  }
+
+  &__content {
+    max-height: 80vh;
+  }
+}

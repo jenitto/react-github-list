@@ -1,0 +1,28 @@
+$compName: 'button-icon';
+
+.#{$compName} {
+  @include ripple($accent700);
+  position: relative;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  vertical-align: middle;
+
+  &:hover:not(:disabled) {
+    background-color: $neutral700;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &:focus {
+    background-color: $neutral700;
+  }
+}
