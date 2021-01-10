@@ -6,6 +6,12 @@ La pretensión de este proyecto es conectarse a la ([API de Github](https://docs
 
 El proyecto ha sido montado con la build tool [Create React App](https://github.com/facebook/create-react-app).
 
+En cuanto al testing de la aplicación, se ha utilizado Jest+Enzyme para hacer los test unitarios de los `/components` (todavía faltan algunos).
+
+## Live app
+
+[Live app](https://react-github-list.netlify.app/)
+
 ## El proyecto está montado con:
 - [ReactJS](https://es.reactjs.org/)
 - [Axios](https://github.com/axios/axios)
@@ -14,10 +20,6 @@ El proyecto ha sido montado con la build tool [Create React App](https://github.
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://enzymejs.github.io/enzyme/)
 - [@wojtekmaj/enzyme-adapter-react-17](https://github.com/wojtekmaj/enzyme-adapter-react-17) (Adaptador de enzyme para React 17 mientras no exista versión oficial)
-
-## Live app
-
-[Live app](https://react-github-list.netlify.app/)
 
 ## Available Scripts
 
