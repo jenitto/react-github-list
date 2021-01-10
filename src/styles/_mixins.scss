@@ -23,6 +23,10 @@
     border-radius: 8px;
     background-color: $color1;
   }
+
+  &::-webkit-scrollbar-corner {
+    background-color: #363636;
+  }
 }
 
 @mixin ripple($color: #fff) {
