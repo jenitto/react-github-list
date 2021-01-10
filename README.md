@@ -7,11 +7,10 @@ La pretensión de este proyecto es conectarse a la ([API de Github](https://docs
 El proyecto ha sido montado con la build tool [Create React App](https://github.com/facebook/create-react-app).
 
 ## El proyecto está montado con:
-- 
 - [ReactJS](https://es.reactjs.org/)
 - [Axios](https://github.com/axios/axios)
 - [Node-sass](https://github.com/sass/node-sass)
-  Testing:
+  <br>Testing:
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://enzymejs.github.io/enzyme/)
 
