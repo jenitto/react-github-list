@@ -17,10 +17,10 @@ const Table = ({
   total,
   isLoading,
   onChangeSearchValue,
-  changeSelected,
-  changeSelectedAll,
-  changeSize,
-  changePage,
+  onChangeSelected,
+  onChangeSelectedAll,
+  onChangeSize,
+  onChangePage,
 }) => (
   <div className='table'>
     <TableHeader totalSelected={selected.length} onChangeSearchValue={onChangeSearchValue}></TableHeader>
@@ -34,7 +34,7 @@ const Table = ({
                   value={'all'}
                   checked={selected.length > 0 && selected.length === data.length}
                   indeterminate={selected.length > 0 && selected.length < data.length}
-                  setChecked={() => changeSelectedAll()}
+                  setChecked={() => onChangeSelectedAll()}
                 ></Checkbox>
               </th>
             ) : null}
@@ -52,7 +52,7 @@ const Table = ({
                       <Checkbox
                         value={row.id}
                         checked={!!selected.find((item) => row.id === item.id)}
-                        setChecked={() => changeSelected(row)}
+                        setChecked={() => onChangeSelected(row)}
                       ></Checkbox>
                     </td>
                   ) : null}
@@ -74,8 +74,8 @@ const Table = ({
       sizes={sizes}
       page={page}
       total={total}
-      changePage={changePage}
-      changeSize={changeSize}
+      onChangePage={onChangePage}
+      onChangeSize={onChangeSize}
     ></TableFooter>
   </div>
 );
@@ -84,8 +84,8 @@ Table.propTypes = {
   columns: PropTypes.array.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      label: PropTypes.string,
       maxWidth: PropTypes.string,
     }),
   ).isRequired,
@@ -97,10 +97,10 @@ Table.propTypes = {
   total: PropTypes.number.isRequired,
   isLoading: PropTypes.bool,
   onChangeSearchValue: PropTypes.func,
-  changeSelected: PropTypes.func,
-  changeSelectedAll: PropTypes.func,
-  changeSize: PropTypes.func,
-  changePage: PropTypes.func,
+  onChangeSelected: PropTypes.func,
+  onChangeSelectedAll: PropTypes.func,
+  onChangeSize: PropTypes.func,
+  onChangePage: PropTypes.func,
 };
 
 export default Table;

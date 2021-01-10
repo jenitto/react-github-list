@@ -139,10 +139,10 @@ const Main = () => {
           total={total}
           isLoading={isLoading}
           onChangeSearchValue={handleSearchValue}
-          changeSelected={changeSelected}
-          changeSelectedAll={changeSelectedAll}
-          changeSize={handleSize}
-          changePage={handlePage}
+          onChangeSelected={changeSelected}
+          onChangeSelectedAll={changeSelectedAll}
+          onChangeSize={handleSize}
+          onChangePage={handlePage}
         ></Table>
       </div>
     </div>

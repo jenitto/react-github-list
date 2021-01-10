@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ButtonIcon from '../../buttons/button-icon/button-icon';
 import Select from '../../inputs/select/select';
 
-const TableFooter = ({ size, sizes, total, page, changePage, changeSize }) => {
+const TableFooter = ({ size, sizes, total, page, onChangePage, onChangeSize }) => {
   const totalPages = Math.ceil(total / size);
 
   return (
@@ -11,7 +11,7 @@ const TableFooter = ({ size, sizes, total, page, changePage, changeSize }) => {
       <div className='table-footer__container table-footer__container--left'>
         <div className='table-footer__spacer'>
           <span className='table-footer__text--hint'>Elementos por página:&nbsp;</span>
-          <Select selected={size} options={sizes} onSelectionChange={(e) => changeSize(e)} />
+          <Select selected={size} options={sizes} onSelectionChange={(e) => onChangeSize(e)} />
         </div>
         <div className='table-footer__spacer'>
           <span className='table-footer__text--hint'>
@@ -37,7 +37,7 @@ const TableFooter = ({ size, sizes, total, page, changePage, changeSize }) => {
               </svg>
             }
             disabled={page === 1}
-            onClick={() => changePage(--page)}
+            onClick={() => onChangePage(--page)}
           />
         </div>
         <div className='table-footer__spacer'>
@@ -56,7 +56,7 @@ const TableFooter = ({ size, sizes, total, page, changePage, changeSize }) => {
               </svg>
             }
             disabled={page === totalPages}
-            onClick={() => changePage(++page)}
+            onClick={() => onChangePage(++page)}
           />
         </div>
       </div>
@@ -69,8 +69,8 @@ TableFooter.propTypes = {
   sizes: PropTypes.array.isRequired,
   total: PropTypes.number.isRequired,
   page: PropTypes.number.isRequired,
-  changePage: PropTypes.func,
-  changeSize: PropTypes.func,
+  onChangePage: PropTypes.func,
+  onChangeSize: PropTypes.func,
 };
 
 export default TableFooter;
